@@ -1,3 +1,5 @@
 05/04/2025 - Alejandro
 
     - Estructura del index
+    - Esqueleto del index y menú del juego
+    - Estilos básicos de plantilla estilo Medac
