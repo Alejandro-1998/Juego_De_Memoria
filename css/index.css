@@ -28,12 +28,51 @@ main {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-image: url("../images/backgorund_menu.jpg");
+    background-size: cover;
 }
 
 div {
     vertical-align: middle;
     align-items: center;
     margin-bottom: 5vh;
+}
+
+button {
+    background-color: #0234ab;
+    color: white;
+    padding: 1rem 2rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 10px 7px 10px black;
+}
+
+button:hover {
+    background-color: #1b56dd;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    background-color: #0234ab;
+    padding: 1rem 2rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 10px 7px 10px black;
+}
+
+a:hover {
+    background-color: #1b56dd;
+}
+
+a:after {
+    color: white;
+    text-decoration: none;
+    background-color: #0234ab;
+    padding: 1rem 2rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 10px 7px 10px black;
 }
 
 header div {
@@ -64,18 +103,52 @@ footer {
     right: 2vh;
 }
 
-.instrucciones {
-    width: 4%;
+.historial {
     position: fixed;
     top: 17vh;
-    right: 5vh;
+    left: 2vw;
 }
 
-.boton {
-    background-color: #0234ab;
-    color: white;
-    padding: 1rem 2rem;
-    border: 1px solid black;
+.instrucciones {
+    width: 60px;
+    position: fixed;
+    top: 17vh;
+    right: 2vw;
+    box-shadow: 10px 7px 10px black;
+    border-radius: 100%;
+}
+
+.popup {
+    position: fixed;
+    top: 25vh; /* Justo debajo de la imagen */
+    right: 12vh; /* Ajusta para alinearlo con la imagen */
+    background-color: white;
+    color: black;
+    border: 2px solid #0234ab;
     border-radius: 10px;
-    box-shadow: 10px 2px 10px;
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    width: 250px;
+    display: none; /* Oculto por defecto */
+}
+
+.popup::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+}
+
+.popup p {
+    text-align: center;
+}
+
+@media (max-width: 375px) {
+    .popup {
+        width: 200px;
+    }
 }

@@ -20,15 +20,30 @@
     </header>
 
     <main>
-        <img class="instrucciones" src="images/instrucciones.png" alt="Instrucciones">
+        <a class="historial" href="contenido/historial.html">Historial de Partidas</a>
+
+        <img class="instrucciones" id="instrucciones" src="images/instrucciones.png" alt="Instrucciones">
+
+        <!-- Popup oculto por defecto -->
+        <div id="popup" class="popup">
+            <p><strong>Instrucciones del Juego:</strong></p>
+            <p>Para empezar a jugar seleciona un modo de juego.</p>
+            <p>El juego consiste en levantar cartas y encontrar cartas que sean iguales.</p>
+            <p>¡Intenta encontrar todas las parejas en el menor tiempo posible!</p>
+            <p>Cada modo aumentará el número de cartas.</p>
+            <p>- Modo Fácil: 4x4</p>
+            <p>- Modo Medio: 6x6</p>
+            <p>- Modo Difícil: 8x8</p>
+        </div>
+
         <div>
-            <p class="boton">Modo Fácil</p>
+            <button>Modo Fácil</b>
         </div>
         <div>
-            <p class="boton">Modo Medio</p>
+            <button>Modo Medio</button>
         </div>
         <div>
-            <p class="boton">Modo Difícil</p>
+            <button>Modo Difícil</button>
         </div>
     </main>
 
