@@ -1,3 +1,6 @@
+/* Alejandro Caballero Luque */
+/* José Ramón Rejano Ruge */
+
 window.addEventListener('DOMContentLoaded', () => {
 
     // Obtenemos los elementos
