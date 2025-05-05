@@ -23,7 +23,7 @@ header {
 
 main {
     width: 100%;
-    height: 70vh;
+    height: 75vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -32,33 +32,9 @@ main {
     background-size: cover;
 }
 
-a {
-    color: white;
-    text-decoration: none;
-    background-color: #0234ab;
-    padding: 1rem 2rem;
-    border: 1px solid black;
-    border-radius: 10px;
-    box-shadow: 10px 7px 10px black;
-}
-
-a:hover {
-    background-color: #1b56dd;
-}
-
-a:after {
-    color: white;
-    text-decoration: none;
-    background-color: #0234ab;
-    padding: 1rem 2rem;
-    border: 1px solid black;
-    border-radius: 10px;
-    box-shadow: 10px 7px 10px black;
-}
-
 footer {
     width: 100%;
-    height: 15vh;
+    height: 10vh;
     background-color: #0d3490;
     text-align: center;
     color: white;
@@ -78,10 +54,13 @@ footer {
     right: 2vh;
 }
 
-.boton-regresar {
+.boton-regresar-container {
     position: fixed;
-    bottom: 16vh; /* justo encima del footer de 15vh */
-    left: 2vh;
+    bottom: 15vh;
+    left: 5vh;
+}
+
+.boton-regresar {
     font-size: 2rem;
     background-color: #0234ab;
     color: white;
@@ -94,9 +73,34 @@ footer {
     transition: background-color 0.3s, transform 0.3s;
     cursor: pointer;
     text-decoration: none;
+    position: relative;
+    z-index: 1;
 }
 
 .boton-regresar:hover {
     background-color: #1b56dd;
     transform: scale(1.1);
+}
+
+.texto {
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    font-size: 0.9rem;
+    z-index: 1;
+    margin-left: 20px;
+}
+
+.texto.show {
+    opacity: 1;
+    margin-left: 20px;
 }

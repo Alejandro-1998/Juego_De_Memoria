@@ -6,7 +6,7 @@
     <meta name="author" content="Alejandro Caballero Luque">
     <meta name="author" content="José Ramón Rejano Ruge">
     <title>Modo Fácil</title>
-    <link rel="stylesheet" href="../css/modo_facil.css">
+    <link rel="stylesheet" href="../css/modo_nivel.css">
 </head>
 <body>
     <header>
@@ -20,7 +20,10 @@
     </header>
 
     <main>
-        <a href="index.html" class="boton-regresar" title="Regresar al Menú Principal">&#8592;</a>        
+        <div class="boton-regresar-container">
+            <a href="../index.html" class="boton-regresar" id="botonRegresar">&#8592;</a>
+            <div class="texto" id="textoRegresar">Regresar al Menú Principal</div>
+        </div>              
     </main>
 
     <footer>
@@ -28,5 +31,7 @@
         <p>Alejandro Caballero Luque</p>
         <p>José Ramón Rejano Ruge</p>
     </footer>
+
+    <script src="../js/boton_regresar.js"></script>
 </body>
 </html>
