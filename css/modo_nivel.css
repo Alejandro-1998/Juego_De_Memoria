@@ -105,7 +105,7 @@ footer {
     margin-left: 20px;
 }
 
-.juego {
+.juego_facil {
     display: grid;
     grid-template-columns: repeat(4, 100px);
     gap: 10px;
@@ -113,7 +113,37 @@ footer {
     margin-top: 20px;
 }
 
-.carta {
+.juego_medio {
+    display: grid;
+    grid-template-columns: repeat(6, 100px);
+    gap: 8px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.juego_dificil {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.carta_facil {
+    width: 100px;
+    height: 100px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.carta_medio {
+    width: 100px;
+    height: 100px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.carta_dificil {
     width: 100px;
     height: 100px;
     perspective: 1000px;
@@ -128,7 +158,15 @@ footer {
     transition: transform 0.6s;
 }
 
-.carta.voltear .inner {
+.carta_facil.voltear .inner {
+    transform: rotateY(180deg);
+}
+
+.carta_medio.voltear .inner {
+    transform: rotateY(180deg);
+}
+
+.carta_dificil.voltear .inner {
     transform: rotateY(180deg);
 }
 
@@ -145,7 +183,7 @@ footer {
 }
 
 .frontal {
-    background-color: #888;
+    background-color: #1b56dd;
     transform: rotateY(0deg);
     z-index: 2;
 }
@@ -159,4 +197,38 @@ footer {
 .trasera img {
     width: 80px;
     height: 80px;
+}
+
+@media (max-width: 768px) {
+    .juego_facil {
+        grid-template-columns: repeat(4, 80px);
+        gap: 8px;
+    }
+
+    .carta {
+        width: 80px;
+        height: 80px;
+    }
+
+    .trasera img {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .juego_facil {
+        grid-template-columns: repeat(4, 70px);
+        gap: 6px;
+    }
+
+    .carta {
+        width: 70px;
+        height: 70px;
+    }
+
+    .trasera img {
+        width: 50px;
+        height: 50px;
+    }
 }

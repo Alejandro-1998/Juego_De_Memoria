@@ -1,20 +1,62 @@
 /* Alejandro Caballero Luque */
 /* José Ramón Rejano Ruge */
 
-// Lista de imágenes (cada color es una imagen)
+// Lista de imágenes
+const imagenesMedac = [
+    '../images/carta_davante.png',
+    '../images/carta_medac.png',
+    '../images/lenguajes_de_marca.png',
+    '../images/aula_virtual.png',
+    '../images/calendario.png',
+    '../images/temas.png',
+    '../images/tareas.png',
+    '../images/sistemas_informaticos.png'
+];
+
+const imagenesDaw = [
+    '../images/carta_davante.png',
+    '../images/carta_medac.png',
+    '../images/lenguajes_de_marca.png',
+    '../images/aula_virtual.png',
+    '../images/calendario.png',
+    '../images/temas.png',
+    '../images/tareas.png',
+    '../images/sistemas_informaticos.png',
+    '../images/carta_davante.png',
+    '../images/carta_medac.png',
+    '../images/lenguajes_de_marca.png',
+    '../images/aula_virtual.png',
+    '../images/calendario.png',
+    '../images/temas.png',
+    '../images/tareas.png',
+    '../images/sistemas_informaticos.png',
+    '../images/tareas.png',
+    '../images/sistemas_informaticos.png'
+];
+
 const imagenes = [
     '../images/carta_davante.png',
     '../images/carta_medac.png',
-    'https://via.placeholder.com/80/0000FF',
-    'https://via.placeholder.com/80/FFFF00',
-    'https://via.placeholder.com/80/FF00FF',
-    'https://via.placeholder.com/80/00FFFF',
-    'https://via.placeholder.com/80/000000',
-    'https://via.placeholder.com/80/FFFFFF'
-    ];
+    '../images/lenguajes_de_marca.png',
+    '../images/aula_virtual.png',
+    '../images/calendario.png',
+    '../images/temas.png',
+    '../images/tareas.png',
+    '../images/sistemas_informaticos.png'
+];
 
 // Duplicamos y mezclamos las cartas
-const cartas = [...imagenes, ...imagenes];
+const pagina = window.location.pathname;
+let cartas;
+
+if (pagina.includes('modo_facil.html')) {
+    cartas = [...imagenesMedac, ...imagenesMedac];
+} else if (pagina.includes('modo_medio.html')) {
+    cartas = [...imagenesDaw, ...imagenesDaw];
+} else {
+    cartas = [...imagenes, ...imagenes];
+}
+
 cartas.sort(() => 0.5 - Math.random());
 
 const juego = document.getElementById('juego');
@@ -25,7 +67,15 @@ let bolquearTablero = false;
 // Creamos cada carta dinámicamente
 cartas.forEach((src) => {
     const carta = document.createElement('div');
-    carta.classList.add('carta');
+
+    if (pagina.includes('modo_facil.html')) {
+        carta.classList.add('carta_facil');
+    } else if (pagina.includes('modo_medio.html')) {
+        carta.classList.add('carta_medio');
+    } else {
+        carta.classList.add('carta_dificil');
+    }
+
     carta.dataset.image = src; // Guardamos qué imagen tiene
 
     const inner = document.createElement('div');
