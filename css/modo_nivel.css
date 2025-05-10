@@ -115,8 +115,8 @@ footer {
 
 .juego_medio {
     display: grid;
-    grid-template-columns: repeat(6, 100px);
-    gap: 8px;
+    grid-template-columns: repeat(6, 75px);
+    gap: 10px;
     justify-content: center;
     margin-top: 20px;
 }
@@ -137,8 +137,8 @@ footer {
 }
 
 .carta_medio {
-    width: 100px;
-    height: 100px;
+    width: 75px;
+    height: 75px;
     perspective: 1000px;
     cursor: pointer;
 }
@@ -205,9 +205,19 @@ footer {
         gap: 8px;
     }
 
-    .carta {
+    .juego_medio {
+        grid-template-columns: repeat(6, 55px);
+        gap: 6px;
+    }
+
+    .carta_facil {
         width: 80px;
         height: 80px;
+    }
+
+    .carta_medio {
+        width: 55px;
+        height: 55px;
     }
 
     .trasera img {
@@ -222,9 +232,19 @@ footer {
         gap: 6px;
     }
 
-    .carta {
+    .juego_medio {
+        grid-template-columns: repeat(6, 45px);
+        gap: 4px;
+    }
+
+    .carta_facil {
         width: 70px;
         height: 70px;
+    }
+
+    .carta_medio {
+        width: 45px;
+        height: 45px;
     }
 
     .trasera img {
