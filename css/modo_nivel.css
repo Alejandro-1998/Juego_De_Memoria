@@ -233,7 +233,7 @@ footer {
     }
 
     .juego_dificil {
-        grid-template-columns: repeat(6, 55px);
+        grid-template-columns: repeat(8, 35px);
         gap: 6px;
     }
 
@@ -247,9 +247,24 @@ footer {
         height: 55px;
     }
 
-    .trasera img {
+    .carta_dificil {
+        width: 35px;
+        height: 35px;
+    }
+
+    .trasera_facil img {
         width: 60px;
         height: 60px;
+    }
+
+    .trasera_medio img {
+        width: 35px;
+        height: 35px;
+    }
+
+    .trasera_dificil img {
+        width: 25px;
+        height: 25px;
     }
 }
 
@@ -264,6 +279,11 @@ footer {
         gap: 4px;
     }
 
+    .juego_dificil {
+        grid-template-columns: repeat(8, 25px);
+        gap: 4px;
+    }
+
     .carta_facil {
         width: 70px;
         height: 70px;
@@ -274,8 +294,23 @@ footer {
         height: 45px;
     }
 
-    .trasera img {
+    .carta_dificil {
+        width: 25px;
+        height: 25px;
+    }
+
+    .trasera_facil img {
         width: 50px;
         height: 50px;
+    }
+
+    .trasera_medio img {
+        width: 25px;
+        height: 25px;
+    }
+
+    .trasera_dificil img {
+        width: 15px;
+        height: 15px;
     }
 }
