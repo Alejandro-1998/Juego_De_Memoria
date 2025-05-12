@@ -14,35 +14,59 @@ const imagenesMedac = [
 ];
 
 const imagenesDaw = [
-    '../images/carta_davante.png',
-    '../images/carta_medac.png',
-    '../images/lenguajes_de_marca.png',
-    '../images/aula_virtual.png',
-    '../images/calendario.png',
-    '../images/temas.png',
-    '../images/tareas.png',
-    '../images/sistemas_informaticos.png',
-    '../images/carta_davante.png',
-    '../images/carta_medac.png',
-    '../images/lenguajes_de_marca.png',
-    '../images/aula_virtual.png',
-    '../images/calendario.png',
-    '../images/temas.png',
-    '../images/tareas.png',
-    '../images/sistemas_informaticos.png',
-    '../images/tareas.png',
-    '../images/sistemas_informaticos.png'
+    '../images/oracle.png',
+    '../images/sql.png',
+    '../images/drive.png',
+    '../images/wamp.png',
+    '../images/cisco.png',
+    '../images/chatgpt.png',
+    '../images/docker.png',
+    '../images/xampp.png',
+    '../images/proyecto.png',
+    '../images/visual.png',
+    '../images/netbeans.png',
+    '../images/java.png',
+    '../images/javascript.png',
+    '../images/css.png',
+    '../images/html.png',
+    '../images/github.png',
+    '../images/terminal.png',
+    '../images/wordpress.png'
 ];
 
 const imagenes = [
-    '../images/carta_davante.png',
-    '../images/carta_medac.png',
-    '../images/lenguajes_de_marca.png',
-    '../images/aula_virtual.png',
-    '../images/calendario.png',
-    '../images/temas.png',
-    '../images/tareas.png',
-    '../images/sistemas_informaticos.png'
+    '../images/oracle.png',
+    '../images/sql.png',
+    '../images/drive.png',
+    '../images/wamp.png',
+    '../images/cisco.png',
+    '../images/chatgpt.png',
+    '../images/docker.png',
+    '../images/xampp.png',
+    '../images/proyecto.png',
+    '../images/visual.png',
+    '../images/netbeans.png',
+    '../images/java.png',
+    '../images/javascript.png',
+    '../images/css.png',
+    '../images/html.png',
+    '../images/github.png',
+    '../images/terminal.png',
+    '../images/wordpress.png',
+    '../images/oracle.png',
+    '../images/sql.png',
+    '../images/drive.png',
+    '../images/wamp.png',
+    '../images/cisco.png',
+    '../images/chatgpt.png',
+    '../images/docker.png',
+    '../images/xampp.png',
+    '../images/proyecto.png',
+    '../images/visual.png',
+    '../images/netbeans.png',
+    '../images/java.png',
+    '../images/javascript.png',
+    '../images/wordpress.png'
 ];
 
 // Duplicamos y mezclamos las cartas
@@ -86,6 +110,15 @@ cartas.forEach((src) => {
 
     const back = document.createElement('div');
     back.classList.add('trasera'); // Parte trasera con imagen
+
+    if (pagina.includes('modo_facil.html')) {
+        back.classList.add('trasera_facil');
+    } else if (pagina.includes('modo_medio.html')) {
+        back.classList.add('trasera_medio');
+    } else {
+        back.classList.add('trasera_dificil');
+    }
+
     const img = document.createElement('img');
     img.src = src;
     back.appendChild(img);

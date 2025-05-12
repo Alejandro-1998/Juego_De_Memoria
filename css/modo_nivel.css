@@ -115,7 +115,7 @@ footer {
 
 .juego_medio {
     display: grid;
-    grid-template-columns: repeat(6, 75px);
+    grid-template-columns: repeat(6, 80px);
     gap: 10px;
     justify-content: center;
     margin-top: 20px;
@@ -123,7 +123,7 @@ footer {
 
 .juego_dificil {
     display: grid;
-    grid-template-columns: repeat(4, 100px);
+    grid-template-columns: repeat(8, 60px);
     gap: 10px;
     justify-content: center;
     margin-top: 20px;
@@ -137,15 +137,15 @@ footer {
 }
 
 .carta_medio {
-    width: 75px;
-    height: 75px;
+    width: 80px;
+    height: 80px;
     perspective: 1000px;
     cursor: pointer;
 }
 
 .carta_dificil {
-    width: 100px;
-    height: 100px;
+    width: 60px;
+    height: 60px;
     perspective: 1000px;
     cursor: pointer;
 }
@@ -188,15 +188,37 @@ footer {
     z-index: 2;
 }
 
-.trasera {
+.trasera_facil {
     background-color: white;
     transform: rotateY(180deg);
     z-index: 1;
 }
 
-.trasera img {
+.trasera_medio {
+    background-color: white;
+    transform: rotateY(180deg);
+    z-index: 1;
+}
+
+.trasera_dificil {
+    background-color: white;
+    transform: rotateY(180deg);
+    z-index: 1;
+}
+
+.trasera_facil img {
     width: 80px;
     height: 80px;
+}
+
+.trasera_medio img {
+    width: 60px;
+    height: 60px;
+}
+
+.trasera_dificil img {
+    width: 40px;
+    height: 40px;
 }
 
 @media (max-width: 768px) {
@@ -206,6 +228,11 @@ footer {
     }
 
     .juego_medio {
+        grid-template-columns: repeat(6, 55px);
+        gap: 6px;
+    }
+
+    .juego_dificil {
         grid-template-columns: repeat(6, 55px);
         gap: 6px;
     }
