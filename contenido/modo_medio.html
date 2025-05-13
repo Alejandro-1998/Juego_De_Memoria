@@ -20,7 +20,22 @@
     </header>
 
     <main>
-        <div id="juego" class="juego_medio"></div>
+        <div id="seleccionModo">
+            <h2>¿Cómo quieres jugar?</h2>
+            <button onclick="iniciarJuego(1)">Un Jugador</button>
+            <button onclick="iniciarJuego(2)">Dos Jugadores</button>
+        </div>
+
+        <div id="juego" class="juego_medio" style="display:none;"></div>
+
+        <div id="infoJuego">
+            <p id="temporizador"> Tiempo: 0 segundos</p>
+            <p id="jugador1">Jugador 1: 0</p>
+            <p id="jugador2">Jugador 2: 0</p>
+            <p id="jugadores">Jugador 1: 0 || Jugador 2: 0</p>
+            <p id="turnoActual">Jugador 1</p>
+        </div>
+
         <div class="boton-regresar-container">
             <a href="../index.html" class="boton-regresar" id="botonRegresar">&#8592;</a>
             <div class="texto" id="textoRegresar">Regresar al Menú Principal</div>
