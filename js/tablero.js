@@ -110,6 +110,7 @@ function iniciarJuego(jugadores) {
         iniciarTemporizador();
     } else {
         document.getElementById('temporizador').style.display = 'none';
+        document.getElementById('temporizador2').style.display = 'none';
         actualizarPuntaje();
         actualizarTurno();
     }
@@ -201,7 +202,7 @@ cartas.forEach((src) => {
 function iniciarTemporizador() {
         timerInterval = setInterval(() => {
         segundos++;
-        document.getElementById('temporizador').textContent = `Tiempo: ${segundos} segundos`;
+        document.getElementById('temporizador').textContent = `${segundos} segundos`;
     }, 1000);
 }
 
