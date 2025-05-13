@@ -82,6 +82,20 @@ footer {
     transform: scale(1.1);
 }
 
+#reiniciar {
+    position: absolute;
+    bottom: 12vh;
+    background-color: #1b56dd;
+    border-radius: 5px;
+    border: 0;
+    padding: 10px;
+    color: white;
+}
+
+#reiniciar:hover {
+    background-color: #5886f1;
+}
+
 .texto {
     position: absolute;
     bottom: 120%;
@@ -322,6 +336,11 @@ footer {
 }
 
 @media (max-width: 560px) {
+    #reiniciar {
+        right: 10vw;
+        bottom: 15vh;
+    }
+
     .juego_facil {
         grid-template-columns: repeat(4, 70px);
         gap: 6px;
