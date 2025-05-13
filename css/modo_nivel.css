@@ -306,7 +306,7 @@ footer {
 #pantalla {
     width: 100%;
     height: 100%;
-    background-color: rgba(82, 139, 6, 0.541);
+    background-color: #2652b9b6;
     position: absolute;
     display: none;
 }
