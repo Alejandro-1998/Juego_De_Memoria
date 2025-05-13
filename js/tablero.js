@@ -244,13 +244,14 @@ function verificarFinJuego() {
             } else {
                 let mensaje = '¡Juego terminado!\n';
                 if (puntajes[0] > puntajes[1]) {
-                    mensaje += 'Ganó el Jugador 1 🎉';
+                    resultado.textContent = mensaje += 'Ganó el Jugador 1 🎉';
                 } else if (puntajes[1] > puntajes[0]) {
-                    mensaje += 'Ganó el Jugador 2 🎉';
+                    resultado.textContent = mensaje += 'Ganó el Jugador 2 🎉';
                 } else {
-                    mensaje += '¡Empate!';
+                    resultado.textContent = mensaje += '¡Empate!';
                 }
-                alert(mensaje);
+                document.getElementById('terminarPartida').style.display = 'block';
+                document.getElementById('pantalla').style.display = 'block';
             }
 
             document.getElementById('continuar').addEventListener('click', function () {
