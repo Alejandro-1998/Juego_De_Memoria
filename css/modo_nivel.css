@@ -105,8 +105,46 @@ footer {
     margin-left: 20px;
 }
 
-.infojuego {
+#seleccionModo {
     background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    color: #1b56dd;
+    text-align: center;
+}
+
+#seleccionModo button {
+    background-color: #1b56dd;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+    border: 0;
+}
+
+#seleccionModo button:hover {
+    background-color: #5582eb;
+}
+
+#infoJuego {
+    background-color: white;
+    display: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    color: #1b56dd;
+    position: absolute;
+    right: 5vw;
+    text-align: center;
+    font-size: larger;
+}
+
+#jugadores {
+    display: none;
+}
+
+#turnoActual {
+    text-align: center;
 }
 
 .juego_facil {
@@ -192,6 +230,10 @@ footer {
     z-index: 2;
 }
 
+.frontal:hover{
+    transform: scale(1.1);
+}
+
 .trasera_facil {
     background-color: white;
     transform: rotateY(180deg);
@@ -270,9 +312,16 @@ footer {
         width: 25px;
         height: 25px;
     }
+
+    #infoJuego {
+        position: absolute;
+        right: 2vw;
+        padding: 8px;
+        font-size: medium;
+    }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 560px) {
     .juego_facil {
         grid-template-columns: repeat(4, 70px);
         gap: 6px;
@@ -316,5 +365,26 @@ footer {
     .trasera_dificil img {
         width: 15px;
         height: 15px;
+    }
+
+    #infoJuego {
+        position: absolute;
+        top: 14vh;
+        right: 20vw;
+        left: 20vw;
+        padding: 8px;
+        font-size: medium;
+    }
+
+    #jugador1 {
+        display: none;
+    }
+
+    #jugador2 {
+        display: none;
+    }
+
+    #jugadores {
+        display: block;
     }
 }

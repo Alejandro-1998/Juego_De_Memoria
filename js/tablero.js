@@ -69,6 +69,9 @@ const imagenesPokemon = [
     '../assets/images/ogerpon.png'
 ];
 
+const coincidirPareja = new Audio('../assets/audio/cartaAcertada.mp3');
+const ganarPartida = new Audio('../assets/audio/victoria.mp3');
+
 // Duplicamos y mezclamos las cartas
 const pagina = window.location.pathname;
 let cartas;
@@ -100,6 +103,8 @@ function iniciarJuego(jugadores) {
     document.getElementById('infoJuego').style.display = 'block';
 
     if (modoJuego === 1) {
+        document.getElementById('jugador1').style.display = 'none';
+        document.getElementById('jugador2').style.display = 'none';
         document.getElementById('jugadores').style.display = 'none';
         document.getElementById('turnoActual').style.display = 'none';
         iniciarTemporizador();
@@ -169,6 +174,11 @@ cartas.forEach((src) => {
             segundaCarta = null;
             bolquearTablero = false;
 
+            setTimeout(() => {
+                coincidirPareja.currentTime = 0;
+                coincidirPareja.play();
+            }, 350);
+
             aumentarPuntaje();
             verificarFinJuego();
         } else {
@@ -199,7 +209,8 @@ function iniciarTemporizador() {
 function aumentarPuntaje() {
     if (modoJuego === 2) {
         puntajes[jugadorActual - 1]++;
-        document.getElementById('jugadores').textContent = `Puntuación: Jugador 1 = ${puntajes[0]} | Jugador 2 = ${puntajes[1]}`;
+        document.getElementById('jugador1').textContent = `Jugador 1: ${puntajes[0]}`;
+        document.getElementById('jugador2').textContent = `Jugador 2: ${puntajes[1]}`;
     }
 }
 
@@ -207,7 +218,7 @@ function aumentarPuntaje() {
 function cambiarTurno() {
     if (modoJuego === 2) {
         jugadorActual = jugadorActual === 1 ? 2 : 1;
-        document.getElementById('turnoActual').textContent = `Turno de: Jugador ${jugadorActual}`;
+        document.getElementById('turnoActual').textContent = `Jugador ${jugadorActual}`;
     }
 }
 
@@ -223,6 +234,8 @@ function verificarFinJuego() {
 
         setTimeout(() => {
             if (modoJuego === 1) {
+                ganarPartida.currentTime = 0;
+                ganarPartida.play();
                 alert(`¡Juego terminado! Tiempo total: ${segundos} segundos`);
             } else {
                 let mensaje = '¡Juego terminado!\n';
