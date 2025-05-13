@@ -227,6 +227,7 @@ function cambiarTurno() {
 function verificarFinJuego() {
     const totalEncontradas = document.querySelectorAll('.encontrada').length;
     const totalCartas = document.querySelectorAll('.carta_facil, .carta_medio, .carta_dificil').length;
+    const resultado = document.getElementById('resultado');
 
     if (totalEncontradas === totalCartas) {
         if (modoJuego === 1) {
@@ -237,7 +238,9 @@ function verificarFinJuego() {
             if (modoJuego === 1) {
                 ganarPartida.currentTime = 0;
                 ganarPartida.play();
-                alert(`¡Juego terminado! Tiempo total: ${segundos} segundos`);
+                resultado.textContent = `¡Juego terminado! Tiempo total: ${segundos} segundos`;
+                document.getElementById('terminarPartida').style.display = 'block';
+                document.getElementById('pantalla').style.display = 'block';
             } else {
                 let mensaje = '¡Juego terminado!\n';
                 if (puntajes[0] > puntajes[1]) {
@@ -250,7 +253,9 @@ function verificarFinJuego() {
                 alert(mensaje);
             }
 
-            location.reload();
+            document.getElementById('continuar').addEventListener('click', function () {
+                location.reload();
+            });
         }, 500);
     }
 }

@@ -92,7 +92,8 @@ footer {
     color: white;
 }
 
-#reiniciar:hover {
+#reiniciar:hover,
+#continuar:hover {
     background-color: #5886f1;
 }
 
@@ -279,6 +280,35 @@ footer {
 .trasera_dificil img {
     width: 40px;
     height: 40px;
+}
+
+#terminarPartida {
+    background-color: white;
+    position: fixed;
+    text-align: center;
+    padding: 50px;
+    border-radius: 10px;
+    color: #0234ab;
+    font-weight: bold;
+    display: none;
+    z-index: 10;
+}
+
+#continuar {
+    background-color: #1b56dd;
+    border-radius: 5px;
+    border: 0;
+    padding: 10px;
+    color: white;
+    margin-top: 5px;
+}
+
+#pantalla {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(82, 139, 6, 0.541);
+    position: absolute;
+    display: none;
 }
 
 @media (max-width: 768px) {
