@@ -112,7 +112,7 @@ footer {
 
 .popup {
     position: fixed;
-    top: 25vh; /* Justo debajo de la imagen */
+    top: 18vh; /* Justo debajo de la imagen */
     right: 12vh; /* Ajusta para alinearlo con la imagen */
     background-color: white;
     color: black;
@@ -142,5 +142,7 @@ footer {
 @media (max-width: 375px) {
     .popup {
         width: 200px;
+        left: 5vw;
+        top: 15vh
     }
 }
