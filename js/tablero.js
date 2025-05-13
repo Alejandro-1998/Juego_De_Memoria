@@ -3,70 +3,70 @@
 
 // Lista de imágenes
 const imagenesMedac = [
-    '../images/carta_davante.png',
-    '../images/carta_medac.png',
-    '../images/lenguajes_de_marca.png',
-    '../images/aula_virtual.png',
-    '../images/calendario.png',
-    '../images/temas.png',
-    '../images/tareas.png',
-    '../images/sistemas_informaticos.png'
+    '../assets/images/carta_davante.png',
+    '../assets/images/carta_medac.png',
+    '../assets/images/lenguajes_de_marca.png',
+    '../assets/images/aula_virtual.png',
+    '../assets/images/calendario.png',
+    '../assets/images/temas.png',
+    '../assets/images/tareas.png',
+    '../assets/images/sistemas_informaticos.png'
 ];
 
 const imagenesDaw = [
-    '../images/oracle.png',
-    '../images/sql.png',
-    '../images/drive.png',
-    '../images/wamp.png',
-    '../images/cisco.png',
-    '../images/chatgpt.png',
-    '../images/docker.png',
-    '../images/xampp.png',
-    '../images/proyecto.png',
-    '../images/visual.png',
-    '../images/netbeans.png',
-    '../images/java.png',
-    '../images/javascript.png',
-    '../images/css.png',
-    '../images/html.png',
-    '../images/github.png',
-    '../images/terminal.png',
-    '../images/wordpress.png'
+    '../assets/images/oracle.png',
+    '../assets/images/sql.png',
+    '../assets/images/drive.png',
+    '../assets/images/wamp.png',
+    '../assets/images/cisco.png',
+    '../assets/images/chatgpt.png',
+    '../assets/images/docker.png',
+    '../assets/images/xampp.png',
+    '../assets/images/proyecto.png',
+    '../assets/images/visual.png',
+    '../assets/images/netbeans.png',
+    '../assets/images/java.png',
+    '../assets/images/javascript.png',
+    '../assets/images/css.png',
+    '../assets/images/html.png',
+    '../assets/images/github.png',
+    '../assets/images/terminal.png',
+    '../assets/images/wordpress.png'
 ];
 
-const imagenes = [
-    '../images/oracle.png',
-    '../images/sql.png',
-    '../images/drive.png',
-    '../images/wamp.png',
-    '../images/cisco.png',
-    '../images/chatgpt.png',
-    '../images/docker.png',
-    '../images/xampp.png',
-    '../images/proyecto.png',
-    '../images/visual.png',
-    '../images/netbeans.png',
-    '../images/java.png',
-    '../images/javascript.png',
-    '../images/css.png',
-    '../images/html.png',
-    '../images/github.png',
-    '../images/terminal.png',
-    '../images/wordpress.png',
-    '../images/oracle.png',
-    '../images/sql.png',
-    '../images/drive.png',
-    '../images/wamp.png',
-    '../images/cisco.png',
-    '../images/chatgpt.png',
-    '../images/docker.png',
-    '../images/xampp.png',
-    '../images/proyecto.png',
-    '../images/visual.png',
-    '../images/netbeans.png',
-    '../images/java.png',
-    '../images/javascript.png',
-    '../images/wordpress.png'
+const imagenesPokemon = [
+    '../assets/images/ferromole.png',
+    '../assets/images/pickachu.png',
+    '../assets/images/raichu.png',
+    '../assets/images/charmander.png',
+    '../assets/images/pichu.png',
+    '../assets/images/rayquaza.png',
+    '../assets/images/hitmonlee.png',
+    '../assets/images/hoOh.png',
+    '../assets/images/lugia.png',
+    '../assets/images/arceus.png',
+    '../assets/images/articuno.png',
+    '../assets/images/flareon.png',
+    '../assets/images/unown.png',
+    '../assets/images/heatran.png',
+    '../assets/images/cobalion.png',
+    '../assets/images/sprigatito.png',
+    '../assets/images/fuecoco.png',
+    '../assets/images/quaxly.png',
+    '../assets/images/lechonk.png',
+    '../assets/images/charcadet.png',
+    '../assets/images/ceruledge.png',
+    '../assets/images/grafaiai.png',
+    '../assets/images/tinkatink.png',
+    '../assets/images/flamigo.png',
+    '../assets/images/annihilape.png',
+    '../assets/images/kingambit.png',
+    '../assets/images/ferropuas.png',
+    '../assets/images/gimmighoul.png',
+    '../assets/images/ferroverdor.png',
+    '../assets/images/flamariete.png',
+    '../assets/images/pecharunt.png',
+    '../assets/images/ogerpon.png'
 ];
 
 // Duplicamos y mezclamos las cartas
@@ -78,7 +78,7 @@ if (pagina.includes('modo_facil.html')) {
 } else if (pagina.includes('modo_medio.html')) {
     cartas = [...imagenesDaw, ...imagenesDaw];
 } else {
-    cartas = [...imagenes, ...imagenes];
+    cartas = [...imagenesPokemon, ...imagenesPokemon];
 }
 
 cartas.sort(() => 0.5 - Math.random());
@@ -87,6 +87,28 @@ const juego = document.getElementById('juego');
 let primeraCarta = null;
 let segundaCarta = null;
 let bolquearTablero = false;
+
+// Iniciar Juego seleccionando un modo de juego
+function iniciarJuego(jugadores) {
+    modoJuego = jugadores;
+    jugadorActual = 1;
+    puntajes = [0, 0];
+    segundos = 0;
+
+    document.getElementById('seleccionModo').style.display = 'none';
+    document.getElementById('juego').style.display = 'grid';
+    document.getElementById('infoJuego').style.display = 'block';
+
+    if (modoJuego === 1) {
+        document.getElementById('jugadores').style.display = 'none';
+        document.getElementById('turnoActual').style.display = 'none';
+        iniciarTemporizador();
+    } else {
+        document.getElementById('temporizador').style.display = 'none';
+        actualizarPuntaje();
+        actualizarTurno();
+    }
+}
 
 // Creamos cada carta dinámicamente
 cartas.forEach((src) => {
@@ -140,9 +162,15 @@ cartas.forEach((src) => {
 
         // Si las imágenes coinciden, dejamos ambas volteadas
         if (primeraCarta.dataset.image === segundaCarta.dataset.image) {
+            primeraCarta.classList.add('encontrada');
+            segundaCarta.classList.add('encontrada');
+            
             primeraCarta = null;
             segundaCarta = null;
             bolquearTablero = false;
+
+            aumentarPuntaje();
+            verificarFinJuego();
         } else {
         // Si no coinciden, las giramos de vuelta después de 0,7 segundos
         setTimeout(() => {
@@ -151,9 +179,64 @@ cartas.forEach((src) => {
             primeraCarta = null;
             segundaCarta = null;
             bolquearTablero = false;
+            cambiarTurno();
         }, 700);
         }
     }
     });
     juego.appendChild(carta); // Añadimos la carta al tablero
 });
+
+// Función temporizador
+function iniciarTemporizador() {
+        timerInterval = setInterval(() => {
+        segundos++;
+        document.getElementById('temporizador').textContent = `Tiempo: ${segundos} segundos`;
+    }, 1000);
+}
+
+// Función aumentar puntuación
+function aumentarPuntaje() {
+    if (modoJuego === 2) {
+        puntajes[jugadorActual - 1]++;
+        document.getElementById('jugadores').textContent = `Puntuación: Jugador 1 = ${puntajes[0]} | Jugador 2 = ${puntajes[1]}`;
+    }
+}
+
+// Función cambiar turno de jugador
+function cambiarTurno() {
+    if (modoJuego === 2) {
+        jugadorActual = jugadorActual === 1 ? 2 : 1;
+        document.getElementById('turnoActual').textContent = `Turno de: Jugador ${jugadorActual}`;
+    }
+}
+
+// Función fin del juego
+function verificarFinJuego() {
+    const totalEncontradas = document.querySelectorAll('.encontrada').length;
+    const totalCartas = document.querySelectorAll('.carta_facil, .carta_medio, .carta_dificil').length;
+
+    if (totalEncontradas === totalCartas) {
+        if (modoJuego === 1) {
+            clearInterval(timerInterval);
+        }
+
+        setTimeout(() => {
+            if (modoJuego === 1) {
+                alert(`¡Juego terminado! Tiempo total: ${segundos} segundos`);
+            } else {
+                let mensaje = '¡Juego terminado!\n';
+                if (puntajes[0] > puntajes[1]) {
+                    mensaje += 'Ganó el Jugador 1 🎉';
+                } else if (puntajes[1] > puntajes[0]) {
+                    mensaje += 'Ganó el Jugador 2 🎉';
+                } else {
+                    mensaje += '¡Empate!';
+                }
+                alert(mensaje);
+            }
+
+            location.reload();
+        }, 500);
+    }
+}

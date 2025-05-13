@@ -11,8 +11,8 @@
 <body>
     <header>
         <div>
-            <img class="logo" src="../images/davante.png" alt="Logo Davante">
-            <img class="logo2" src="../images/medac.png" alt="Logo Medac">
+            <img class="logo" src="../assets/images/davante.png" alt="Logo Davante">
+            <img class="logo2" src="../assets/images/medac.png" alt="Logo Medac">
         </div>
         <div>
             <h1>Modo Fácil (4x4)</h1>
@@ -20,7 +20,20 @@
     </header>
 
     <main>
-        <div id="juego" class="juego_facil"></div>
+        <div id="seleccionModo">
+            <h2>¿Cómo quieres jugar?</h2>
+            <button onclick="iniciarJuego(1)">Un Jugador</button>
+            <button onclick="iniciarJuego(2)">Dos Jugadores</button>
+        </div>
+
+        <div id="juego" class="juego_facil" style="display:none;"></div>
+
+        <div id="infoJuego" style="display:none;">
+            <p id="temporizador"> Tiempo: 0 segundos</p>
+            <p id="jugadores">Jugador 1: 0 || Jugador 2: 0</p>
+            <p id="turnoActual">Jugador 1</p>
+        </div>
+
         <div class="boton-regresar-container">
             <a href="../index.html" class="boton-regresar" id="botonRegresar">&#8592;</a>
             <div class="texto" id="textoRegresar">Regresar al Menú Principal</div>
