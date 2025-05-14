@@ -242,19 +242,35 @@ function verificarFinJuego() {
                 document.getElementById('terminarPartida').style.display = 'block';
                 document.getElementById('pantalla').style.display = 'block';
             } else {
+                let ganador = 1;
+
                 let mensaje = '¡Juego terminado!\n';
                 if (puntajes[0] > puntajes[1]) {
                     resultado.textContent = mensaje += 'Ganó el Jugador 1 🎉';
                 } else if (puntajes[1] > puntajes[0]) {
                     resultado.textContent = mensaje += 'Ganó el Jugador 2 🎉';
+                    ganador = 2;
                 } else {
                     resultado.textContent = mensaje += '¡Empate!';
+                    ganador = 0;
                 }
                 document.getElementById('terminarPartida').style.display = 'block';
                 document.getElementById('pantalla').style.display = 'block';
             }
 
             document.getElementById('continuar').addEventListener('click', function () {
+
+                const partida = {
+                    ganador: ganador,
+                    puntuacion: Math.floor(Math.random() * 100), // ejemplo
+                    fecha: new Date().toLocaleString(),
+                    hora: now.toLocaleTimeString()
+                };
+
+                const historial = JSON.parse(localStorage.getItem('historial')) || [];
+                historial.push(partida);
+                localStorage.setItem('historial', JSON.stringify(historial));
+
                 location.reload();
             });
         }, 500);
