@@ -75,13 +75,17 @@ const ganarPartida = new Audio('../assets/audio/victoria.mp3');
 // Duplicamos y mezclamos las cartas
 const pagina = window.location.pathname;
 let cartas;
+let nivel;
 
 if (pagina.includes('modo_facil.html')) {
     cartas = [...imagenesMedac, ...imagenesMedac];
+    nivel = "Fácil";
 } else if (pagina.includes('modo_medio.html')) {
     cartas = [...imagenesDaw, ...imagenesDaw];
+    nivel = "Medio";
 } else {
     cartas = [...imagenesPokemon, ...imagenesPokemon];
+    nivel = "Difícil";
 }
 
 cartas.sort(() => 0.5 - Math.random());
@@ -228,6 +232,7 @@ function verificarFinJuego() {
     const totalEncontradas = document.querySelectorAll('.encontrada').length;
     const totalCartas = document.querySelectorAll('.carta_facil, .carta_medio, .carta_dificil').length;
     const resultado = document.getElementById('resultado');
+    let ganador;
 
     if (totalEncontradas === totalCartas) {
         if (modoJuego === 1) {
@@ -242,17 +247,17 @@ function verificarFinJuego() {
                 document.getElementById('terminarPartida').style.display = 'block';
                 document.getElementById('pantalla').style.display = 'block';
             } else {
-                let ganador = 1;
 
                 let mensaje = '¡Juego terminado!\n';
                 if (puntajes[0] > puntajes[1]) {
                     resultado.textContent = mensaje += 'Ganó el Jugador 1 🎉';
+                    ganador = "Jugador 1";
                 } else if (puntajes[1] > puntajes[0]) {
                     resultado.textContent = mensaje += 'Ganó el Jugador 2 🎉';
-                    ganador = 2;
+                    ganador = "Jugador 2";
                 } else {
                     resultado.textContent = mensaje += '¡Empate!';
-                    ganador = 0;
+                    ganador = "Empate";
                 }
                 document.getElementById('terminarPartida').style.display = 'block';
                 document.getElementById('pantalla').style.display = 'block';
@@ -260,12 +265,24 @@ function verificarFinJuego() {
 
             document.getElementById('continuar').addEventListener('click', function () {
 
-                const partida = {
-                    ganador: ganador,
-                    puntuacion: Math.floor(Math.random() * 100), // ejemplo
-                    fecha: new Date().toLocaleString(),
-                    hora: now.toLocaleTimeString()
-                };
+                const now = new Date();
+                let partida;
+
+                if (modoJuego === 1) {
+                    partida = {
+                        nivel: nivel,
+                        modo: "1 Jugador",
+                        tiempo: `${segundos} segundos`,
+                        fechaHora: new Date().toLocaleString()
+                    };
+                } else {
+                    partida = {
+                        nivel: nivel,
+                        modo: "2 Jugadores",
+                        ganador: `${ganador}`,
+                        fechaHora: new Date().toLocaleString()
+                    };
+                }
 
                 const historial = JSON.parse(localStorage.getItem('historial')) || [];
                 historial.push(partida);

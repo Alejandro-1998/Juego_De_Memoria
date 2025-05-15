@@ -110,3 +110,15 @@ footer {
     opacity: 1;
     margin-left: 20px;
 }
+
+.contenedor {
+    background-color: white;
+    padding: 50px;
+    border-radius: 10px;
+    width: 75vw;
+    height: 50vh;
+}
+
+#lista {
+    color: #0234ab;
+}
